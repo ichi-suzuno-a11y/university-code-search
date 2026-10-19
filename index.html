@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>大学入試10桁コード検索・進路カード作成 Ver.15</title>
+<title>大学入試10桁コード検索・進路カード作成 Ver.16</title>
 <style>
 :root{color-scheme:light;--bg:#f4f6f8;--paper:#fff;--ink:#182739;--muted:#657588;--line:#dbe2ea;--navy:#153b58;--teal:#087c83;--focus:#1269b1;--soft:#e8f4f4;--shadow:0 8px 28px rgba(24,45,67,.065)}
 *{box-sizing:border-box}
@@ -237,10 +237,82 @@ strong.key{color:#006b72}
  #school-card *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .card-universities tbody tr{break-inside:avoid;page-break-inside:avoid}
 }
+
+/* Ver.16: high-contrast A3 print; sharp vector text and rules (screen UI unchanged) */
+@media print {
+  @page { size: A3 portrait; margin: 6mm; }
+  #school-card {
+    font-family: "Noto Sans CJK JP", "Yu Gothic", "Meiryo", sans-serif !important;
+    color: #000 !important;
+    font-size: 10.3pt !important;
+    line-height: 1.25 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-font-smoothing: auto !important;
+  }
+  #school-card *:not(.blank-text) {
+    color: #000 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+  #school-card .blank-text { color: transparent !important; }
+  #school-card .card-info { border: 1.6px solid #000 !important; }
+  #school-card .card-info .side + .side { border-left: 1.4px solid #000 !important; }
+  #school-card .card-line .fill,
+  #school-card .card-write-row .blank,
+  #school-card .card-write-in { border-bottom: 1.35px solid #000 !important; }
+  #school-card .card-universities {
+    border: 1.7px solid #000 !important;
+    border-collapse: collapse !important;
+  }
+  #school-card .card-universities th,
+  #school-card .card-universities td {
+    border: 1.35px solid #000 !important;
+    background: #fff !important;
+    padding: 2px 2.5px !important;
+  }
+  #school-card .card-universities thead th {
+    height: 11.5mm !important;
+    font-size: 8.7pt !important;
+    line-height: 1.17 !important;
+    font-weight: 800 !important;
+    background: #ececec !important;
+  }
+  #school-card .card-universities tbody td {
+    height: 8.9mm !important;
+    font-size: 8.5pt !important;
+    line-height: 1.16 !important;
+    font-weight: 600 !important;
+  }
+  #school-card .card-universities tbody td.num { font-size: 9.3pt !important; }
+  #school-card .card-universities tbody td.code {
+    font-family: "Noto Sans Mono CJK JP", Consolas, "Liberation Mono", monospace !important;
+    font-size: 8.6pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+  }
+  #school-card .card-universities tbody td.uname { font-size: 8.6pt !important; }
+  #school-card .card-universities tbody td.smalltext { font-size: 8.0pt !important; }
+  #school-card .card-main-title { font-weight: 800 !important; }
+  #school-card .card-heading,
+  #school-card .card-info,
+  #school-card .card-section-title,
+  #school-card .card-notes,
+  #school-card .card-footnotes,
+  #school-card .card-bottom { font-weight: 600 !important; }
+  #school-card .card-notes { font-size: 8.9pt !important; }
+  #school-card .card-footnotes { font-size: 8.7pt !important; }
+  #school-card .card-bottom { font-size: 8.6pt !important; border-top: 1.45px solid #000 !important; }
+  #school-card .card-bottom > div { border-right: 1.35px solid #000 !important; }
+  #school-card .card-legend-title { border-bottom: 1.35px solid #000 !important; }
+  #school-card .card-small { font-size: 7.8pt !important; }
+  #school-card .card-verification { font-size: 7.8pt !important; }
+}
 </style>
 </head>
 <body>
-<header><div class="container"><div class="eyebrow">BENESSE · UNIVERSITY CODE LOOKUP</div><h1>大学入試 10桁コード検索 ＋ 進路カード <small style="font-size:14px;vertical-align:middle;opacity:.9">Ver.15</small></h1><p>全国28,379件の10桁コードと、2027年度の入試日程3,142件をあらかじめ収録。最大25件を選び、入試日程の入力・修正・確認ができます。クラス・番号・氏名と10桁コードを指定すると、保存済みの入試日程を自動表示。日付は修正でき、原本形式でPDF・印刷できます。</p></div></header>
+<header><div class="container"><div class="eyebrow">BENESSE · UNIVERSITY CODE LOOKUP</div><h1>大学入試 10桁コード検索 ＋ 進路カード <small style="font-size:14px;vertical-align:middle;opacity:.9">Ver.16</small></h1><p>全国28,379件の10桁コードと、2027年度の入試日程3,142件をあらかじめ収録。最大25件を選び、入試日程の入力・修正・確認ができます。クラス・番号・氏名と10桁コードを指定すると、保存済みの入試日程を自動表示。日付は修正でき、原本形式でPDF・印刷できます。</p></div></header>
 <main class="container">
 
 <section class="panel" id="student-panel" aria-labelledby="student-title">
